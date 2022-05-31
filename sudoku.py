@@ -17,12 +17,12 @@ def print_solution(grid):
 # Helper function that solves for each box
 def check_valid_move(grid, row, col, num):
     # Check if number can be placed on the x-axis
-    for i in range(9):
+    for i in range(matrix):
         if grid[row][i] == num:
             return False
 
     # Check if number can be placed on the y-axis
-    for i in range(9):
+    for i in range(matrix):
         if grid[i][col] == num:
             return False
 
@@ -76,13 +76,13 @@ def solve_sudoku(grid, row, col):
 # Let user insert their custom grid
 def create_grid() -> []:
     user_grid = []
-    for i in range(9):
+    for i in range(matrix):
         user_input = input(f"Enter row #{i + 1}: ")
         row = [int(number) for number in user_input]
         user_grid.append(row)
 
     # print("Final:", user_grid)
-    # Flatten list so we can count it
+    # Flatten list, so we can count it
     grid_length = len(list(itertools.chain(*user_grid)))
 
     if grid_length == 81:
